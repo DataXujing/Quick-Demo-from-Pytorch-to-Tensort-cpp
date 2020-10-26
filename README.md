@@ -49,6 +49,11 @@ Check output:
  
  ## Usage
  ```bash
- git clone 
+ git clone https://github.com/hova88/Quick-Demo-from-Pytorch-to-Tensort-cpp.git
+ cd Quick-Demo-from-Pytorch-to-Tensort-cpp
+ python pytorch_to_onnx.py
+ mkdir build && cd build && cmake ..
+ make -j6
+ ./onnxTotrt
  ```
  
