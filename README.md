@@ -2,9 +2,15 @@
 
  A simple and quick example shows how to convert a pytorch's model to ONNX, and then deploy it with tensorrt using c++.
 
-## Pipline
- - step 1. Using Pytorch to build a simple neural network and convert to ONNX file `test.onnx`
+ ## Pipline
+  - step 1. Using Pytorch to build a simple neural network and then export to ONNX file `test.onnx`
+ ```bash
+ git clone https://github.com/hova88/Quick-Demo-from-Pytorch-to-Tensort-cpp.git
+ cd Quick-Demo-from-Pytorch-to-Tensort-cpp
+ python pytorch_to_onnx.py
  ```
+The screen will shown as this:
+  ```
  ----------------------------------------------------------------
         Layer (type)               Output Shape         Param #
 ================================================================
@@ -30,6 +36,12 @@ tensor([[-2.2734, -2.2539, -2.2107, -2.3713, -2.3443, -2.4683, -2.3709, -2.2777,
 
  - step 2. Initialize tensorrt engine by ONNX file, and then DO INFERENCE.
  ```bash
+ mkdir build && cd build && cmake ..
+ make -j6
+ ./onnxTotrt
+ ```
+ The screen will shown as this:
+ ```bash
  ----------------------------------------------------------------
 Input filename:   ../test.onnx
 ONNX IR version:  0.0.4
@@ -45,15 +57,3 @@ loaded trt model , do inference
 Check output:
 -2.20698 -2.24908 -2.4583 -2.27005 -2.30133 -2.43457 -2.33783 -2.21271 -2.41685 -2.1832
  ```
- 
- 
- ## Usage
- ```bash
- git clone https://github.com/hova88/Quick-Demo-from-Pytorch-to-Tensort-cpp.git
- cd Quick-Demo-from-Pytorch-to-Tensort-cpp
- python pytorch_to_onnx.py
- mkdir build && cd build && cmake ..
- make -j6
- ./onnxTotrt
- ```
- 
