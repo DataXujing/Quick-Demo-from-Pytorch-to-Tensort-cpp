@@ -3,7 +3,7 @@
  A simple and quick example shows how to convert a pytorch's model to ONNX, and then deploy it with tensorrt using c++.
 
  ## Pipline
-  - step 1. Using Pytorch to build a simple neural network and then export to ONNX file `test.onnx`
+  - **step 1.** Using Pytorch to build a simple neural network and then export to ONNX file `test.onnx`
  ```bash
  git clone https://github.com/hova88/Quick-Demo-from-Pytorch-to-Tensort-cpp.git
  cd Quick-Demo-from-Pytorch-to-Tensort-cpp
@@ -34,7 +34,7 @@ tensor([[-2.2734, -2.2539, -2.2107, -2.3713, -2.3443, -2.4683, -2.3709, -2.2777,
          -2.2169, -2.2676]], device='cuda:0')
 ```
 
- - step 2. Initialize tensorrt engine by ONNX file, and then DO INFERENCE.
+ - **step 2.** Initialize tensorrt engine by ONNX file, and then DO INFERENCE.
  ```bash
  mkdir build && cd build && cmake ..
  make -j6
