@@ -144,13 +144,13 @@ int main()
 
     
 
-    cudaMemcpy(h_input, buffers[0],  DATA_SHAPE * DATA_SHAPE * sizeof(float), cudaMemcpyHostToDevice);
+    cudaMemcpy(buffers[0], h_input, DATA_SHAPE * DATA_SHAPE * sizeof(float), cudaMemcpyHostToDevice);
 
     // -- do execute --------///
     int32_t BATCH_SIZE_ = 1;
     engine_context->execute(BATCH_SIZE_, buffers);
     
-    cudaMemcpy(&h_output, buffers[1],
+    cudaMemcpy(h_output, buffers[1],
                 10 * sizeof(float),
                cudaMemcpyDeviceToHost);
     
